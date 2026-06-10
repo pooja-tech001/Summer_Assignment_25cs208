@@ -1,17 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int x, n;
-    long long result = 1;
+    int n, binary[32], i = 0;
 
-    printf("Enter base and power: ");
-    scanf("%d %d", &x, &n);
+    printf("Enter a decimal number: ");
+    scanf("%d", &n);
 
-    for (int i = 1; i <= n; i++) {
-        result *= x;
+    while (n > 0) {
+        binary[i] = n % 2;
+        n = n / 2;
+        i++;
     }
 
-    printf("%d^%d = %lld\n", x, n, result);
+    printf("Binary = ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", binary[j]);
+    }
 
     return 0;
 }
